@@ -11,11 +11,11 @@ func EightBallAnswer() string {
 
 	rand.Seed(int64(time.Now().Nanosecond()))
 
-	answers := parseAnswers(answersFile)
+	answers := parseAnswers()
 	return answers[rand.Intn(len(answers))]
 }
 
-func parseAnswers(filename string) []string{
+func parseAnswers() []string{
 
 	return []string {
 		"Probably not.",
@@ -38,12 +38,7 @@ func parseAnswers(filename string) []string{
 		"Sometimes.",
 		"#NOOOOOOOOOOO",
 		"#NOOOOOOOOOOO",
-		"#NOOOOOOOOOOO",
-		"#NOOOOOOOOOOO",
-		"#NOOOOOOOOOOO",
-		"#YESSSSSSSSSS",
-		"#YESSSSSSSSSS",
-		"#YESSSSSSSSSS",
+		"#NOOOOOOOOOOO",		
 		"#YESSSSSSSSSS",
 		"#YESSSSSSSSSS",
 		"#YESSSSSSSSSS",		
@@ -61,5 +56,27 @@ func parseAnswers(filename string) []string{
 		"If you like salamanders, then yes. Otherwise, God help you.",
 		"Just calm down and have a pizza.",
 		"One of these days, Alice.",
+		"Sure.",
+		"Why not?",
+		"In some universes.",
+		"Oh, stahp.",
+		"No! Panic!",
+		"Ask again.",
+		"I swear, I've heard this one before.",
+		"You know...",
+		"By Jove, certainly not!",
+		"Bullocks to that.",
+		"In some cases.",
+		"Do you really think that's appropriate?",
+		"In some countries, that question is punishable by hanging.",
+		"What?",
+		"Who's asking?",
+		"Contemplate more deeply, and ask again.",
+		"No. Should you drink more? Probably.",
+		"If you were in the military, you wouldn't have time for such trivialities.",
+		"Do you even lift, brah?",
+		"It is a truth universally acknowledged.",
+		"Sounds like someone's stressed.",
+		"Whoa, now.",
 	}
 }
