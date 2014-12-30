@@ -58,7 +58,6 @@ func parseAnswers(filename string) []string{
 		"You go, girl!",
 		"You already know the answer.",
 		"No YOU are.",
-		"Does the Pope help cover up an international child-abuse ring?",
 		"If you like salamanders, then yes. Otherwise, God help you.",
 		"Just calm down and have a pizza.",
 		"One of these days, Alice.",
