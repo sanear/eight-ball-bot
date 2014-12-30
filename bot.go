@@ -46,7 +46,7 @@ func main() {
 }
 
 func runDumbWebService(port string) {
-	log.Println("Starting Eight Ball webservice...")
+	log.Printf("Starting Eight Ball webservice on port %s...\n", port)
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(port, nil)
 	log.Println("Stopping Eight Ball webservice...")
