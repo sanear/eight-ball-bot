@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"net/url"
 	"net/http"
+	"strings"
 	"strconv"
 	"github.com/ChimeraCoder/anaconda"
 	"github.com/sanear/eightBallBot/questionAnalyzer"
@@ -90,11 +91,20 @@ func respondToMentions(api *anaconda.TwitterApi, postCount int, postLimit int, l
 		return postCount, lastId, err
 	} else {
 		for _, mention := range mentions {
+			// Regardless of rate, favorite mentions containing "love" and "funny"
+			if strings.Contains(strings.ToLower(mention.Text), "love") || strings.Contains(strings.ToLower(mention.Text), "funny") {
+				_, err = api.Favorite(mention.Id)
+				if err != nil {
+					log.Println("ERROR: Failed to favorite tweet!", err)
+				} else {
+					log.Printf("Favorited tweet %s: '%s'\n", mention.Id, mention.Text)
+				}
+			}
 			if postCount < postLimit {
 				log.Printf("@%s mentioned me, saying '%s'\n", mention.User.ScreenName, mention.Text)
 				reply, err := answerQuestion(api, mention)
 				if err != nil {
-					log.Printf("ERROR: Unable to post reply! %s\n", err)
+					log.Println("ERROR: Unable to post reply!", err)
 					return postCount, lastId, err
 				} else {
 					lastId = strconv.FormatInt(mention.Id, 10)
