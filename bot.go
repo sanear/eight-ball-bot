@@ -68,7 +68,7 @@ func answerQuestions(api *anaconda.TwitterApi, postCount int, postLimit int) (ne
 					log.Printf("ERROR: Unable to post reply: %s\n", err)
 					return postCount, err
 				} else {
-					log.Printf("Replied to tweet with: %s\n", reply.Text)
+					log.Printf("Replied to tweet with: '%s'\n", reply.Text)
 					postCount++
 				}
 			} else {
@@ -99,7 +99,7 @@ func respondToMentions(api *anaconda.TwitterApi, postCount int, postLimit int, l
 				} else {
 					lastId = strconv.FormatInt(mention.Id, 10)
 					postCount++
-					log.Printf("Replied to tweet with id %s, saying '%s'\n", lastId, reply.Text)
+					log.Printf("Replied to tweet %s, saying '%s'\n", lastId, reply.Text)
 				}
 			} else {
 				log.Printf("Too many requests have been made this cycle; sleeping for a bit.")
