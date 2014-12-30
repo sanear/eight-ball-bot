@@ -130,7 +130,7 @@ func findQuestions(api *anaconda.TwitterApi) (questions []anaconda.Tweet, err er
 }
 
 func answerQuestion(api *anaconda.TwitterApi, question anaconda.Tweet) (reply anaconda.Tweet, err error) {
-	answer := ".@" + question.User.ScreenName + " " + eightBall.EightBallAnswer()
+	answer := "@" + question.User.ScreenName + " " + eightBall.EightBallAnswer()
 	v := url.Values{}
 	v.Set("in_reply_to_status_id", strconv.FormatInt(question.Id, 10))
 	return api.PostTweet(answer, v)
