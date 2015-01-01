@@ -6,4 +6,4 @@ Run this project to begin searching the twitterstream for yes/no questions and r
 
 Issue a GET request where you're running it to ask the Sardonic Eight Ball a question.
 
-The current incarnation of the eightBallBot is on Twitter @sardonic_8ball, and so far no one has threatened to murder him.
+I should mention that this bot violates Twitter's ToS and only ran for about 24 hours before its key was revoked.
